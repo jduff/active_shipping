@@ -132,7 +132,7 @@ class FedExTest < Test::Unit::TestCase
     end
   end
 
-  def test_different_rates_based_on_company_name_presence
+  def test_different_rates_for_commercial
     residential_response = @carrier.find_rates(
                              @locations[:beverly_hills],
                              @locations[:ottawa],
@@ -140,7 +140,7 @@ class FedExTest < Test::Unit::TestCase
                            )
     commercial_response  = @carrier.find_rates(
                              @locations[:beverly_hills],
-                             Location.from(@locations[:ottawa].to_hash, :company => "Mine"),
+                             Location.from(@locations[:ottawa].to_hash, :address_type => :commercial),
                              @packages.values_at(:chocolate_stuff)
                            )
 

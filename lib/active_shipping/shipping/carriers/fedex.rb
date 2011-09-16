@@ -219,7 +219,7 @@ module ActiveMerchant
             address_node << XmlNode.new('PostalCode', location.postal_code)
             address_node << XmlNode.new("CountryCode", location.country_code(:alpha2))
 
-            address_node << XmlNode.new("Residential", true) unless location.commercial? || !location.company_name.blank?
+            address_node << XmlNode.new("Residential", true) unless location.commercial?
           end
         end
       end
